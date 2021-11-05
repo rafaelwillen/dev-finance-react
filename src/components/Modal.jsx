@@ -1,4 +1,4 @@
-const Modal = ({ show }) => {
+const Modal = ({ show, onCancelTransaction }) => {
   return (
     <div className="modal" style={{ display: show ? "block" : "none" }}>
       <form className="form">
@@ -19,7 +19,9 @@ const Modal = ({ show }) => {
           <button type="submit" className="btn primary">
             Criar Transação
           </button>
-          <button className="btn cancel">Cancelar</button>
+          <button className="btn cancel" onClick={onCancelTransaction}>
+            Cancelar
+          </button>
         </div>
       </form>
     </div>

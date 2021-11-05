@@ -9,13 +9,18 @@ function App() {
   const [showModal, setShowModal] = useState(false);
 
   const onAddTransaction = () => {
-    setShowModal(!showModal);
+    setShowModal(true);
+  };
+
+  const onCancelTransaction = (e) => {
+    e.preventDefault();
+    setShowModal(false);
   };
 
   return (
     <>
       <div className={showModal ? "modal-overlay show" : "modal-overlay"}></div>
-      <Modal show={showModal} />
+      <Modal show={showModal} onCancelTransaction={onCancelTransaction} />
       <Header />
       <Balance />
       <Container onAddTransaction={onAddTransaction} />
