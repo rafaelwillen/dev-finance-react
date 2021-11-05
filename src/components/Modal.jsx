@@ -1,15 +1,35 @@
 import { useState } from "react";
 
+import { formatAmount, formatDate } from "../utilities/formater";
+
 const Modal = ({ show, onCancelTransaction }) => {
   const [description, setDescription] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
   const [date, setDate] = useState("");
+
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!description || !date) {
-      alert("Por favor preencha todos os campos");
-      return;
+    try {
+      validate();
+      const newTransaction = formatValues();
+      console.log(newTransaction);
+    } catch (error) {
+      alert(error.message);
     }
+  };
+
+  const validate = () => {
+    if (description === "" || amount === 0 || date === "")
+      throw new Error("Preencha todos os campos");
+  };
+
+  const formatValues = () => {
+    const transaction = {
+      description,
+      amount: formatAmount(amount),
+      date: formatDate(date),
+    };
+    return transaction;
   };
 
   return (
@@ -27,7 +47,8 @@ const Modal = ({ show, onCancelTransaction }) => {
         <div className="input-group">
           <label htmlFor="value">Valor</label>
           <input
-            type="text"
+            type="number"
+            step="0.01"
             placeholder="00.00 Kzs"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
