@@ -16,7 +16,7 @@
 body {
   font-size: 15px;
   line-height: 1.6;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, sans-serif;
   background-color: var(--page-background-color);
 }
 
