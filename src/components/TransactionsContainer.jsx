@@ -1,6 +1,6 @@
 import TransactionCell from "./TransactionCell";
 
-const TransactionsContainer = () => {
+const TransactionsContainer = ({ transactions }) => {
   return (
     <div className="transactions-container">
       <div className="headline">
@@ -8,11 +8,20 @@ const TransactionsContainer = () => {
         <h3>Valor</h3>
         <h3>Data</h3>
       </div>
-      <TransactionCell date="05/11/2021" description="Comida" value={-1000} />
-      <TransactionCell date="05/11/2021" description="Comida" value={-1000} />
-      <TransactionCell date="05/11/2021" description="Comida" value={-1000} />
+      {transactions.map(({ description, amount, date }, index) => (
+        <TransactionCell
+          key={index}
+          date={date}
+          description={description}
+          value={amount}
+        />
+      ))}
     </div>
   );
+};
+
+TransactionsContainer.defaultProps = {
+  transactions: [],
 };
 
 export default TransactionsContainer;

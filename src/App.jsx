@@ -7,6 +7,7 @@ import Modal from "./components/Modal";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
+  const [transactions, setTransactions] = useState([]);
 
   const onAddTransaction = () => {
     setShowModal(true);
@@ -18,7 +19,8 @@ function App() {
   };
 
   const addTransaction = (transaction) => {
-    console.log(transaction);
+    // TODO: Add local storage
+    setTransactions([...transactions, transaction]);
     setShowModal(false);
   };
 
@@ -32,7 +34,10 @@ function App() {
       />
       <Header />
       <Balance />
-      <Container onAddTransaction={onAddTransaction} />
+      <Container
+        onAddTransaction={onAddTransaction}
+        transactions={transactions}
+      />
     </>
   );
 }

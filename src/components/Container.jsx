@@ -1,11 +1,11 @@
 import TextButton from "./interactive/TextButton";
 import TransactionsContainer from "./TransactionsContainer";
 
-const Container = ({ onAddTransaction }) => {
+const Container = ({ onAddTransaction, transactions }) => {
   return (
     <section className="container">
       <TextButton content="+ Adicionar Transação" onClick={onAddTransaction} />
-      <TransactionsContainer />
+      <TransactionsContainer transactions={transactions} />
     </section>
   );
 };
