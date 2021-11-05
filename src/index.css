@@ -27,8 +27,13 @@ header {
   text-align: center;
 }
 
+.container {
+  width: 85%;
+  margin: 0 auto;
+}
+
 .balance {
-  margin: -3rem 1.375rem;
+  margin: -3rem 1.375rem 2rem 1.375rem;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
@@ -52,4 +57,20 @@ header {
 .card.primary-bg {
   background-color: var(--primary-color);
   color: var(--white);
+}
+
+.text-button {
+  cursor: pointer;
+  background-color: transparent;
+  font-weight: 300;
+  font-size: 0.75rem;
+  border: none;
+}
+
+.text-button.primary-color {
+  color: var(--primary-color);
+}
+
+.text-button:hover {
+  text-decoration: underline;
 }
