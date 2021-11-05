@@ -17,6 +17,7 @@ body {
   font-size: 15px;
   line-height: 1.6;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--page-background-color);
 }
 
 header {
@@ -24,4 +25,31 @@ header {
   background-color: var(--accent-color);
   padding-top: 1.75rem;
   text-align: center;
+}
+
+.balance {
+  margin: -3rem 1.375rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.card {
+  font-size: 1.875rem;
+  border-radius: 8px;
+  background-color: var(--white);
+  color: var(--font-color);
+  padding: 1.25rem;
+}
+
+.card .headline {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card.primary-bg {
+  background-color: var(--primary-color);
+  color: var(--white);
 }
