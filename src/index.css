@@ -1,0 +1,27 @@
+:root {
+  --accent-color: #2d4a22;
+  --primary-color: #49aa26;
+  --white: #fff;
+  --black: #000;
+  --page-background-color: #f4f4f4;
+  --font-color: #363f5f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 15px;
+  line-height: 1.6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  min-height: 7.5rem;
+  background-color: var(--accent-color);
+  padding-top: 1.75rem;
+  text-align: center;
+}
