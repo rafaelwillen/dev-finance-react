@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { formatAmount, formatDate } from "../utilities/formater";
 
-const Modal = ({ show, onCancelTransaction }) => {
+const Modal = ({ show, onCancelTransaction, addTransaction }) => {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState(0);
   const [date, setDate] = useState("");
@@ -12,7 +12,8 @@ const Modal = ({ show, onCancelTransaction }) => {
     try {
       validate();
       const newTransaction = formatValues();
-      console.log(newTransaction);
+      addTransaction(newTransaction);
+      clearFields();
     } catch (error) {
       alert(error.message);
     }
@@ -30,6 +31,12 @@ const Modal = ({ show, onCancelTransaction }) => {
       date: formatDate(date),
     };
     return transaction;
+  };
+
+  const clearFields = () => {
+    setDescription("");
+    setAmount(0);
+    setDate("");
   };
 
   return (

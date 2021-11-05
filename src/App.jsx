@@ -17,10 +17,19 @@ function App() {
     setShowModal(false);
   };
 
+  const addTransaction = (transaction) => {
+    console.log(transaction);
+    setShowModal(false);
+  };
+
   return (
     <>
       <div className={showModal ? "modal-overlay show" : "modal-overlay"}></div>
-      <Modal show={showModal} onCancelTransaction={onCancelTransaction} />
+      <Modal
+        show={showModal}
+        onCancelTransaction={onCancelTransaction}
+        addTransaction={addTransaction}
+      />
       <Header />
       <Balance />
       <Container onAddTransaction={onAddTransaction} />
