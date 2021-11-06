@@ -116,6 +116,14 @@ header {
   opacity: 1;
 }
 
+.transactions-container .transaction-cell .positive {
+  color: var(--primary-color);
+}
+
+.transactions-container .transaction-cell .negative {
+  color: var(--danger-color);
+}
+
 .modal-overlay {
   position: absolute;
   display: none;

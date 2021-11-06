@@ -4,7 +4,9 @@ const TransactionCell = ({ description, value, date, onDoubleClick }) => {
   return (
     <div className="transaction-cell" onDoubleClick={onDoubleClick}>
       <p>{description}</p>
-      <p>{formatCurrency(value)}</p>
+      <p className={value > 0 ? "positive" : "negative"}>
+        {formatCurrency(value)}
+      </p>
       <p>{date}</p>
     </div>
   );
