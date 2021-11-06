@@ -19,9 +19,18 @@ function App() {
   };
 
   const addTransaction = (transaction) => {
-    // TODO: Add local storage
+    // TODO: Add to local storage
     setTransactions([...transactions, transaction]);
     setShowModal(false);
+  };
+
+  const removeTransaction = (id) => {
+    // TODO: Remove from local storage
+    setTransactions(
+      transactions.filter((transaction, index) => {
+        if (id !== index) return transaction;
+      })
+    );
   };
 
   return (
@@ -37,6 +46,7 @@ function App() {
       <Container
         onAddTransaction={onAddTransaction}
         transactions={transactions}
+        removeTransaction={removeTransaction}
       />
     </>
   );

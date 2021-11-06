@@ -1,6 +1,6 @@
 import TransactionCell from "./TransactionCell";
 
-const TransactionsContainer = ({ transactions }) => {
+const TransactionsContainer = ({ transactions, removeTransaction }) => {
   return (
     <div className="transactions-container">
       <div className="headline">
@@ -14,6 +14,9 @@ const TransactionsContainer = ({ transactions }) => {
           date={date}
           description={description}
           value={amount}
+          onDoubleClick={(e) => {
+            removeTransaction(index);
+          }}
         />
       ))}
     </div>
