@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import Card from "./Card";
 import expenseIcon from "../assets/expense.svg";
 import incomeIcon from "../assets/income.svg";
@@ -9,6 +7,7 @@ import {
   calculateExpense,
   calculateIncome,
 } from "../utilities/transactions";
+import { formatCurrency } from "../utilities/formater";
 
 const Balance = ({ transactions }) => {
   const income = calculateIncome(transactions);
@@ -17,13 +16,13 @@ const Balance = ({ transactions }) => {
 
   return (
     <section className="balance">
-      <Card title="Entradas" icon={incomeIcon} value={income} />
-      <Card title="Saídas" icon={expenseIcon} value={expense} />
+      <Card title="Entradas" icon={incomeIcon} value={formatCurrency(income)} />
+      <Card title="Saídas" icon={expenseIcon} value={formatCurrency(expense)} />
       <Card
         title="Balanço"
         isPrimaryColor="true"
         icon={totalIcon}
-        value={balance}
+        value={formatCurrency(balance)}
       />
     </section>
   );
