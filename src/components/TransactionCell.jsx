@@ -1,8 +1,10 @@
+import { formatCurrency } from "../utilities/formater";
+
 const TransactionCell = ({ description, value, date, onDoubleClick }) => {
   return (
     <div className="transaction-cell" onDoubleClick={onDoubleClick}>
       <p>{description}</p>
-      <p>{value}</p>
+      <p>{formatCurrency(value)}</p>
       <p>{date}</p>
     </div>
   );
