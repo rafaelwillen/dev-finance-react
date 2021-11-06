@@ -4,10 +4,11 @@ import Balance from "./components/Balance";
 import Header from "./components/Header";
 import Container from "./components/Container";
 import Modal from "./components/Modal";
+import { transactionStore } from "./utilities/transactionStore";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState(transactionStore.getAll());
 
   const onAddTransaction = () => {
     setShowModal(true);
@@ -19,18 +20,18 @@ function App() {
   };
 
   const addTransaction = (transaction) => {
-    // TODO: Add to local storage
-    setTransactions([...transactions, transaction]);
+    const newTransactions = [...transactions, transaction];
+    transactionStore.set(newTransactions);
+    setTransactions(newTransactions);
     setShowModal(false);
   };
 
   const removeTransaction = (id) => {
-    // TODO: Remove from local storage
-    setTransactions(
-      transactions.filter((transaction, index) => {
-        if (id !== index) return transaction;
-      })
-    );
+    const newTransactions = transactions.filter((transaction, index) => {
+      if (id !== index) return transaction;
+    });
+    transactionStore.set(newTransactions);
+    setTransactions(newTransactions);
   };
 
   return (

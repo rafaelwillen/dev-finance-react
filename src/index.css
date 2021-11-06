@@ -83,6 +83,7 @@ header {
   flex-direction: column;
   gap: 0.625rem;
   min-width: 22rem;
+  margin-bottom: 2rem;
 }
 
 .transactions-container div {
