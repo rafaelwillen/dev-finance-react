@@ -33,7 +33,7 @@ function App() {
         addTransaction={addTransaction}
       />
       <Header />
-      <Balance />
+      <Balance transactions={transactions} />
       <Container
         onAddTransaction={onAddTransaction}
         transactions={transactions}

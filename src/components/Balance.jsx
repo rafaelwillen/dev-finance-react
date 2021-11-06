@@ -1,15 +1,30 @@
-import React from "react";
+import { useState } from "react";
+
 import Card from "./Card";
 import expenseIcon from "../assets/expense.svg";
 import incomeIcon from "../assets/income.svg";
 import totalIcon from "../assets/total.svg";
+import {
+  calculateBalance,
+  calculateExpense,
+  calculateIncome,
+} from "../utilities/transactions";
 
-const Balance = () => {
+const Balance = ({ transactions }) => {
+  const income = calculateIncome(transactions);
+  const expense = calculateExpense(transactions);
+  const balance = calculateBalance(income, expense);
+
   return (
     <section className="balance">
-      <Card title="Entradas" icon={incomeIcon} />
-      <Card title="Saídas" icon={expenseIcon} />
-      <Card title="Balanço" isPrimaryColor="true" icon={totalIcon} />
+      <Card title="Entradas" icon={incomeIcon} value={income} />
+      <Card title="Saídas" icon={expenseIcon} value={expense} />
+      <Card
+        title="Balanço"
+        isPrimaryColor="true"
+        icon={totalIcon}
+        value={balance}
+      />
     </section>
   );
 };
